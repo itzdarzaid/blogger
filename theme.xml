@@ -1,0 +1,275 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+  <meta content='width=device-width, initial-scale=1' name='viewport'/>
+  <meta charset='UTF-8'/>
+  <b:include data='blog' name='all-head-content'/>
+
+  <b:if cond='data:blog.pageType == &quot;item&quot;'>
+    <title><data:blog.pageName/> | <data:blog.title/></title>
+  <b:elseif cond='data:blog.pageType == &quot;index&quot; and data:blog.pageName != &quot;&quot;'/>
+    <title><data:blog.pageName/> | <data:blog.title/></title>
+  <b:else/>
+    <title><data:blog.title/> — Real Money Help for Real People</title>
+  </b:if>
+
+  <b:if cond='data:blog.searchLabel or data:blog.searchQuery'>
+    <meta content='noindex,follow' name='robots'/>
+  <b:else/>
+    <meta content='index,follow' name='robots'/>
+  </b:if>
+
+  <b:if cond='data:blog.pageType == &quot;item&quot;'>
+    <link expr:href='data:blog.url' rel='canonical'/>
+  <b:elseif cond='data:blog.pageType == &quot;archive&quot; or data:blog.searchLabel or data:blog.searchQuery'/>
+    <link expr:href='data:blog.url' rel='canonical'/>
+  <b:else/>
+    <link expr:href='data:blog.homepageUrl' rel='canonical'/>
+  </b:if>
+
+  <b:if cond='data:blog.metaDescription != &quot;&quot;'>
+    <meta expr:content='data:blog.metaDescription' name='description'/>
+  <b:elseif cond='data:blog.pageType == &quot;item&quot;'/>
+    <meta expr:content='data:blog.pageName + &quot; — practical budgeting, debt payoff, and side hustle guidance from EverydayMoneyFix.&quot;' name='description'/>
+  <b:else/>
+    <meta content='Real money help for regular working Americans. Practical budgeting tips, debt payoff strategies, and side hustle ideas.' name='description'/>
+  </b:if>
+
+  <meta content='summary_large_image' name='twitter:card'/>
+  <meta content='@EverydayMoneyFix' name='twitter:site'/>
+  <meta expr:content='data:blog.title' property='og:site_name'/>
+  <meta id='og-image-meta' content='https://www.everydaymoneyfix.com/og-default.png' property='og:image'/>
+  <meta id='twitter-image-meta' content='https://www.everydaymoneyfix.com/og-default.png' name='twitter:image'/>
+  <b:if cond='data:blog.pageType == &quot;item&quot;'>
+    <meta content='article' property='og:type'/>
+    <meta expr:content='data:blog.pageName' property='og:title'/>
+    <meta expr:content='data:blog.url' property='og:url'/>
+    <meta expr:content='data:blog.pageName' name='twitter:title'/>
+  <b:else/>
+    <meta content='website' property='og:type'/>
+    <meta expr:content='data:blog.title + &quot; — Real Money Help for Real People&quot;' property='og:title'/>
+    <meta expr:content='data:blog.homepageUrl' property='og:url'/>
+    <meta expr:content='data:blog.title + &quot; — Real Money Help for Real People&quot;' name='twitter:title'/>
+  </b:if>
+
+  <link href='https://fonts.googleapis.com' rel='preconnect'/>
+  <link crossorigin='anonymous' href='https://fonts.gstatic.com' rel='preconnect'/>
+  <link href='https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&amp;family=DM+Sans:wght@400;500;700&amp;display=swap' rel='stylesheet'/>
+
+  <b:skin><![CDATA[
+:root{--green:#1a6b3a;--green-light:#2d9e58;--green-pale:#e8f5ee;--gold:#c9820a;--cream:#faf8f3;--dark:#1c1c1e;--gray:#6b7280;--white:#fff;--border:#e5e2d9;--radius:14px;--shadow:0 10px 30px rgba(0,0,0,.08);--max:1120px}
+*{box-sizing:border-box}body{margin:0;font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);line-height:1.75}a{text-decoration:none;color:inherit}
+.container{max-width:var(--max);margin:0 auto;padding:0 20px}
+#navbar{position:sticky;top:0;z-index:99;background:#fff;border-bottom:1px solid var(--border)}.nav-inner{height:64px;display:flex;justify-content:space-between;align-items:center;gap:16px}.logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--green)}
+.nav-menu{display:flex;gap:8px;list-style:none;padding:0;margin:0}.nav-menu a{padding:8px 12px;border-radius:8px;font-size:14px}.nav-menu a:hover{background:var(--green-pale);color:var(--green)}
+#hero{background:linear-gradient(135deg,#0f3d22,#1a6b3a 60%,#2d9e58);color:#fff;padding:72px 20px}.hero-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}.hero-card{background:#fff;color:var(--dark);border-radius:18px;padding:24px;box-shadow:var(--shadow)}
+#main-wrapper{max-width:var(--max);margin:0 auto;padding:44px 20px;display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:34px}
+.section-title{font-family:'Playfair Display',serif;font-size:32px;line-height:1.2;margin:0 0 10px}.section-sub{color:var(--gray);margin:0 0 26px}
+.posts-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.post-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:.2s}.post-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.post-thumb{height:190px;background:linear-gradient(135deg,var(--green-pale),#cce8d9);display:flex;align-items:center;justify-content:center}.post-thumb img{width:100%;height:100%;object-fit:cover}
+.post-body{padding:20px}.post-title{font-family:'Playfair Display',serif;font-size:20px;line-height:1.3;margin:0 0 8px}.post-title a:hover{color:var(--green)}.post-snippet{color:var(--gray);font-size:14px;margin:0 0 14px}
+.post-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--gray);padding-top:12px;border-top:1px solid var(--border)}
+.post-list-item{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:18px;display:flex;gap:14px;margin-bottom:16px}.post-list-thumb{width:130px;height:90px;flex-shrink:0;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,var(--green-pale),#cce8d9)}.post-list-thumb img{width:100%;height:100%;object-fit:cover}.post-list-title{margin:0 0 8px;font-size:22px;line-height:1.25;font-family:'Playfair Display',serif}
+.post-single{max-width:760px}.post-header h1{font-family:'Playfair Display',serif;font-size:42px;line-height:1.2;margin:0 0 16px}.post-content{font-size:18px;line-height:1.9}.post-content h2{font-family:'Playfair Display',serif;line-height:1.3;font-size:30px;margin:36px 0 14px}.post-content h3{font-family:'Playfair Display',serif;font-size:24px;margin:26px 0 10px}.post-content p{margin:0 0 18px}
+.widget-wrap,.sidebar-widget{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:18px}.widget-wrap h3,.sidebar-widget h3{margin:0 0 14px;padding-bottom:10px;border-bottom:2px solid var(--green);font-family:'Playfair Display',serif}
+.footer{background:#1c1c1e;color:rgba(255,255,255,.72);margin-top:40px}.footer-inner{max-width:var(--max);margin:0 auto;padding:40px 20px}.footer p{margin:0}
+@media (max-width:980px){.hero-inner{grid-template-columns:1fr}#main-wrapper{grid-template-columns:1fr}.nav-menu{display:none}}
+@media (max-width:640px){#hero{padding:50px 16px}.section-title{font-size:28px}.posts-grid{grid-template-columns:1fr}.post-header h1{font-size:32px}.post-content{font-size:17px;line-height:1.85}}
+  ]]></b:skin>
+</head>
+<body>
+  <a href='#main-content' style='position:absolute;left:-9999px;top:0;background:#1a6b3a;color:#fff;padding:8px 14px;z-index:9999'>Skip to main content</a>
+
+  <nav id='navbar' aria-label='Main navigation'>
+    <div class='container nav-inner'>
+      <a class='logo' expr:href='data:blog.homepageUrl'><data:blog.title/></a>
+      <ul class='nav-menu'>
+        <li><a expr:href='data:blog.homepageUrl'>Home</a></li>
+        <li><a expr:href='data:blog.homepageUrl + &quot;search/label/Budgeting&quot;'>Budgeting</a></li>
+        <li><a expr:href='data:blog.homepageUrl + &quot;search/label/Debt%20Payoff&quot;'>Debt Payoff</a></li>
+        <li><a expr:href='data:blog.homepageUrl + &quot;search/label/Side%20Hustles&quot;'>Side Hustles</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <b:if cond='data:blog.pageType == &quot;index&quot; and data:blog.pageName == &quot;&quot;'>
+    <section id='hero'>
+      <div class='hero-inner'>
+        <div>
+          <h1 class='section-title' style='color:#fff'>Fix Your Everyday Money Problems — Starting Today</h1>
+          <p class='section-sub' style='color:rgba(255,255,255,.85)'>Practical budgeting tips, debt payoff strategies, and side hustle ideas for regular working Americans.</p>
+        </div>
+        <div class='hero-card'>
+          <strong style='display:block;margin-bottom:8px;color:var(--green)'>Trending Now</strong>
+          <h2 style='font-family:Playfair Display,serif;margin:0 0 8px;font-size:24px'>Bare Minimum Budgeting</h2>
+          <p style='margin:0;color:var(--gray)'>A no-stress way to manage essentials when life is overwhelming.</p>
+        </div>
+      </div>
+    </section>
+  </b:if>
+
+  <div id='main-wrapper'>
+    <main id='main-content'>
+      <b:section id='main' class='main' showaddelement='yes' maxwidgets='8'>
+        <b:widget id='Blog1' type='Blog' locked='false' title='Blog Posts' version='2'>
+          <b:widget-settings>
+            <b:widget-setting name='showShareButtons'>false</b:widget-setting>
+            <b:widget-setting name='showAuthor'>true</b:widget-setting>
+            <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+            <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+            <b:widget-setting name='showLabels'>true</b:widget-setting>
+            <b:widget-setting name='numPosts'>8</b:widget-setting>
+          </b:widget-settings>
+
+          <b:includable id='main' var='top'>
+            <b:if cond='data:blog.pageType == &quot;item&quot;'>
+              <b:loop values='data:posts' var='post'>
+                <script type='application/ld+json'>
+                {
+                  "@context": "https://schema.org",
+                  "@type": "BlogPosting",
+                  "headline": "<data:post.title/>",
+                  "description": "<data:post.snippet/>",
+                  "url": "<data:post.url/>",
+                  "datePublished": "<data:post.date.iso8601/>",
+                  "dateModified": "<data:post.lastUpdated.iso8601/>",
+                  "author": {"@type": "Person", "name": "<data:post.author/>"},
+                  "publisher": {"@type": "Organization", "name": "EverydayMoneyFix"}
+                }
+                </script>
+                <article class='post-single' itemscope='itemscope' itemtype='https://schema.org/BlogPosting'>
+                  <header class='post-header'>
+                    <h1 itemprop='headline'><data:post.title/></h1>
+                    <div style='font-size:13px;color:#6b7280'>
+                      <time expr:datetime='data:post.date.iso8601' itemprop='datePublished'><data:post.dateHeader/></time>
+                      · <span itemprop='author'><data:post.author/></span>
+                    </div>
+                  </header>
+                  <b:if cond='data:post.featuredImage'>
+                    <img alt='' expr:src='data:post.featuredImage' loading='eager' style='width:100%;border-radius:14px;margin:20px 0'/>
+                  </b:if>
+                  <div class='post-content' itemprop='articleBody'>
+                    <data:post.body/>
+                  </div>
+                </article>
+              </b:loop>
+
+            <b:elseif cond='data:blog.pageType == &quot;index&quot; and data:blog.pageName == &quot;&quot;'/>
+              <h2 class='section-title'>Fresh From the Blog</h2>
+              <p class='section-sub'>Practical money advice published weekly.</p>
+              <div class='posts-grid'>
+                <b:loop values='data:posts' var='post'>
+                  <article class='post-card' itemscope='itemscope' itemtype='https://schema.org/BlogPosting'>
+                    <a expr:href='data:post.url'>
+                      <div class='post-thumb'>
+                        <b:if cond='data:post.featuredImage'>
+                          <img alt='' expr:src='data:post.featuredImage' loading='lazy' width='400' height='190'/>
+                        <b:else/>
+                          <span aria-hidden='true'>💰</span>
+                        </b:if>
+                      </div>
+                    </a>
+                    <div class='post-body'>
+                      <h3 class='post-title' itemprop='headline'><a expr:href='data:post.url'><data:post.title/></a></h3>
+                      <p class='post-snippet' itemprop='description'><data:post.snippet/></p>
+                      <div class='post-meta'>
+                        <time expr:datetime='data:post.date.iso8601'><data:post.dateHeader/></time>
+                        <a expr:href='data:post.url' style='color:var(--green);font-weight:700'>Read More →</a>
+                      </div>
+                    </div>
+                  </article>
+                </b:loop>
+              </div>
+
+            <b:else/>
+              <b:if cond='data:blog.searchLabel'>
+                <header class='widget-wrap'>
+                  <h1 style='font-family:Playfair Display,serif;margin:0 0 6px;font-size:30px'>Articles tagged: <data:blog.searchLabel/></h1>
+                  <p style='margin:0;color:var(--gray)'>Browse all posts in this category.</p>
+                </header>
+              </b:if>
+              <b:loop values='data:posts' var='post'>
+                <article class='post-list-item' itemscope='itemscope' itemtype='https://schema.org/BlogPosting'>
+                  <a class='post-list-thumb' expr:href='data:post.url'>
+                    <b:if cond='data:post.featuredImage'>
+                      <img alt='' expr:src='data:post.featuredImage' loading='lazy' width='130' height='90'/>
+                    <b:else/>
+                      <span aria-hidden='true' style='display:flex;align-items:center;justify-content:center;height:100%'>💰</span>
+                    </b:if>
+                  </a>
+                  <div>
+                    <h2 class='post-list-title'><a expr:href='data:post.url'><data:post.title/></a></h2>
+                    <p class='post-snippet'><data:post.snippet/></p>
+                    <div class='post-meta'>
+                      <time expr:datetime='data:post.date.iso8601'><data:post.dateHeader/></time>
+                      <a expr:href='data:post.url' style='color:var(--green);font-weight:700'>Read More →</a>
+                    </div>
+                  </div>
+                </article>
+              </b:loop>
+            </b:if>
+
+            <nav class='widget-wrap' aria-label='Post navigation'>
+              <b:include name='nextprev'/>
+            </nav>
+          </b:includable>
+
+          <b:includable id='nextprev'>
+            <b:if cond='data:newerPageUrl'>
+              <a expr:href='data:newerPageUrl' style='margin-right:16px;color:var(--green);font-weight:700'>← Newer Posts</a>
+            </b:if>
+            <b:if cond='data:olderPageUrl'>
+              <a expr:href='data:olderPageUrl' style='color:var(--green);font-weight:700'>Older Posts →</a>
+            </b:if>
+          </b:includable>
+        </b:widget>
+      </b:section>
+    </main>
+
+    <aside>
+      <b:section id='sidebar' class='sidebar' showaddelement='yes' preferred='yes' maxwidgets='20'>
+        <b:widget id='PageList1' type='PageList' title='Pages' locked='false'/>
+        <b:widget id='PopularPosts1' type='PopularPosts' title='Popular Posts' locked='false'/>
+        <b:widget id='FeaturedPost1' type='FeaturedPost' title='Featured Post' locked='false'/>
+        <b:widget id='Label1' type='Label' title='Categories' locked='false'/>
+        <b:widget id='BlogArchive1' type='BlogArchive' title='Archive' locked='false'/>
+        <b:widget id='BlogSearch1' type='BlogSearch' title='Search' locked='false'/>
+        <b:widget id='ContactForm1' type='ContactForm' title='Contact Form' locked='false'/>
+        <b:widget id='Profile1' type='Profile' title='About Author' locked='false'/>
+        <b:widget id='AdSense1' type='AdSense' title='Advertisement' locked='false'/>
+        <b:widget id='HTML1' type='HTML' title='Newsletter' locked='false'>
+          <b:widget-settings>
+            <b:widget-setting name='content'>
+              &lt;div class=&quot;sidebar-widget&quot;&gt;&lt;h3&gt;📧 Get Weekly Tips&lt;/h3&gt;&lt;p style=&quot;margin:0;color:#6b7280&quot;&gt;Join for practical money tips and resources.&lt;/p&gt;&lt;/div&gt;
+            </b:widget-setting>
+          </b:widget-settings>
+        </b:widget>
+      </b:section>
+    </aside>
+  </div>
+
+  <footer class='footer'>
+    <div class='footer-inner'>
+      <p>© 2026 <data:blog.title/> · All rights reserved.</p>
+    </div>
+  </footer>
+
+  <b:section id='footer-widgets' class='footer-widgets' showaddelement='yes' maxwidgets='6'>
+    <b:widget id='Attribution1' type='Attribution' title='Attribution' locked='false'/>
+  </b:section>
+
+  <script>
+  //<![CDATA[
+  (function(){
+    var img=document.querySelector('.post-single img');
+    if(!img) return;
+    var og=document.getElementById('og-image-meta');
+    var tw=document.getElementById('twitter-image-meta');
+    if(og) og.setAttribute('content',img.src);
+    if(tw) tw.setAttribute('content',img.src);
+  })();
+  //]]>
+  </script>
+</body>
+</html>
